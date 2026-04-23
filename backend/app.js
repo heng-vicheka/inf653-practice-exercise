@@ -12,6 +12,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const SESSION_SECRET = process.env.SESSION_SECRET || 'fallback_secret';
 const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:3000';
+const upload = multer();
 
 // Middleware
 app.use(cors({ 
@@ -127,9 +128,11 @@ app.get('/api/profile/:username', (req, res) => {
 });
 
 // Upload Route
-app.post('/api/upload', authenticateSession, (req, res) => {
-  const { name, address, phoneNumber } = req.body;
-  if (!req.file) return res.status(400).json({ message: 'No image uploaded' });
+app.post('/api/upload', authenticateSession, upload.none(), (req, res) => {
+  const { name, address, phoneNumber } = req.body || {};
+  if (!name || !address || !phoneNumber) {
+    return res.status(400).json({ message: 'Name, address, and phone number are required' });
+  }
 
   const newPhoneBook = {
     id: phoneBooks.length + 1,
