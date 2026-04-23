@@ -1,22 +1,16 @@
 {
-  "name": "inf653-practice-exercise",
+  "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/heng-vicheka/inf653-practice-exercise.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/heng-vicheka/inf653-practice-exercise/issues"
-  },
-  "homepage": "https://github.com/heng-vicheka/inf653-practice-exercise#readme",
+  "type": "commonjs",
   "dependencies": {
     "bcryptjs": "^3.0.3",
     "cookie-parser": "^1.4.7",
@@ -24,12 +18,8 @@
     "csurf": "^1.11.0",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
-    "express-handlebars": "^8.0.3",
+    "express-session": "^1.19.0",
     "jsonwebtoken": "^9.0.3",
     "multer": "^2.1.1"
-  },
-  "devDependencies": {
-    "nodemon": "3.1.14",
-    "prettier": "3.8.3"
   }
 }
